@@ -20,29 +20,31 @@ Alcuni viaggi test sono stati creati nelle date:
 - 23 gennaio 2022 
 - 24 gennaio 2022
 
-###Specifiche
+Altrimenti è possibile creare un nuovo utente.
+
+### Specifiche
 - **Visualizzazione viaggi:**
-    - scelta del giorno utilizzando il dataPicker;
-    - inserimento nuovo viaggio premendo il bottone `Add`;
+    - scelta del giorno utilizzando il dataPicker
+    - inserimento nuovo viaggio premendo il bottone `Add`
     - elenco dei viaggi creati con breve descrizione
-    - visualizzazione dettagli del viaggio utilizzando la tendina dropdown;
-    - le tappe importanti sono contrassegnate da un pin;
-    - ***Extra***:
-        - visualizzando i dettagli di un viaggio, la mappa si adatta al viaggio in osservazione.
+    - visualizzazione dettagli del viaggio utilizzando la tendina dropdown
+    - le tappe importanti sono contrassegnate da un pin
+    - ***Extra***
+        - visualizzando i dettagli di un viaggio, la mappa si adatta al viaggio in osservazione
 - **Visualizzazione dettagli di un viaggio:**
-  - elenco delle tappe e rispettive coordinate;
-  - modifica del viaggio selezionato premendo il bottone `Edit`;
-  - eliminazione del viaggio selezionato premendo il bottone `Delete`;
+  - elenco delle tappe e rispettive coordinate
+  - modifica del viaggio selezionato premendo il bottone `Edit`
+  - eliminazione del viaggio selezionato premendo il bottone `Delete`
 
 - **Aggiunta o modifica di un viaggio**
     - inserimento breve descrizione del viaggio
     - inserimento coordinate di una tappa
-    - aggiunta di una tappa utilizzando il bottone `+`;
-    - eliminazione di una tappa utilizzando il bottone `-`;
+    - aggiunta di una tappa utilizzando il bottone `+`
+    - eliminazione di una tappa utilizzando il bottone `-`
     - definizione di una tappa importante contrassegnando il checkbox vicino alla tappa associata
     - scelta del mezzo utilizzato per percorrere lo spostamento
     - tutti i campi possono essere modificati
     - ***Extra***
-      - importare le coordinate di un punto sulla mappa per definire una tappa
+      - inserimento/modifica coordinate di una tappa tramite importazione di un punto sulla mappa
 - ***Extra***
   - Registrazione nuovo utente sulla piattaforma
