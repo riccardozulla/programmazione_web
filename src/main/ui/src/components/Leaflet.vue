@@ -1,5 +1,5 @@
 <template>
-  <l-map ref="map" @click="clickMap">
+  <l-map ref="map" @click="clickMap" :zoom="zoom" :center="center">
     <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
     <l-geo-json
       ref="geo_json"
@@ -34,12 +34,15 @@ export default {
     trips: Array,
     selected: Number,
     newTrip: Object,
+    zoom: Number,
+    center: Array,
   },
   data() {
     return {
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       attribution:
         '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+
       options: {
         onEachFeature: this.onEachFeature,
       },
@@ -74,7 +77,12 @@ export default {
       }
     },
     onEachFeature(feature, layer) {
-      layer.bindTooltip(feature.properties.description).openTooltip();
+      layer
+        .bindTooltip(feature.properties.description, {
+          sticky: true,
+          interactive: true,
+        })
+        .openTooltip();
     },
     clickMap(e) {
       this.$emit("sendClickedCoord", e.latlng);

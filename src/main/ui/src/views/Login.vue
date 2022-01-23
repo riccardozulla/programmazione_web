@@ -74,7 +74,6 @@ export default {
 </script>
 
 <style scoped>
-
 body {
   display: flex;
   align-items: center;

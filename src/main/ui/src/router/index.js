@@ -29,7 +29,7 @@ const routes = [
 
 const router = new VueRouter({
   mode: "history",
-  base: '/programmazione_web/',
+  base: "/programmazione_web/",
   //base: process.env.BASE_URL,
   routes,
 });
@@ -46,4 +46,3 @@ router.beforeEach((to, from, next) => {
 });
 
 export default router;
-

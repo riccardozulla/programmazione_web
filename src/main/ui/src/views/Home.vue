@@ -1,125 +1,82 @@
 <template>
   <div class="container">
-    <h1 class="align-middle">Home</h1>
-    <button data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">PROVA</button>
-    <input type="text" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
-    <router-link to="/login">Login</router-link>
-    <router-link to="/register">Register</router-link>
+    <Leaflet
+      :trips="trips"
+      :new-trip="trip"
+      :center="[45.7343714609777, 13.717808441567188]"
+      :zoom="10"
+    />
   </div>
 </template>
 
 <script>
+import Leaflet from "@/components/Leaflet";
 export default {
   name: "Home",
+  components: { Leaflet },
+  data() {
+    return {
+      trips: [],
+      trip: {
+        type: "Feature",
+        geometry: {
+          type: "LineString",
+          coordinates: [],
+        },
+        properties: {
+          description: "",
+          vehicle: "",
+          markers: [],
+        },
+      },
+    };
+  },
+  mounted() {
+    this.trips = [
+      {
+        type: "Feature",
+        geometry: {
+          type: "LineString",
+          coordinates: [
+            [13.79403067187904, 45.6862419784061],
+            [13.803377772576802, 45.67824153462351],
+            [13.825473052336267, 45.67290570084128],
+            [13.837007172217664, 45.681222372607074],
+            [13.847993660932884, 45.66549507422975],
+            [13.863443410688662, 45.64195590118592],
+            [13.896641942543791, 45.62779127690673],
+            [13.909310735248049, 45.63463960388317],
+            [13.892951163752285, 45.64440603207172],
+          ],
+        },
+        properties: {
+          description: "Giro in bici",
+          vehicle: "bike",
+          markers: [0, 3, 8],
+        },
+      },
+      {
+        type: "Feature",
+        geometry: {
+          type: "LineString",
+          coordinates: [
+            [13.772788552216582, 45.65686339108357],
+            [13.744379267132853, 45.68872209812295],
+            [13.710561481556338, 45.71247477387874],
+            [13.662255265034364, 45.74640679449186],
+            [13.638050657083665, 45.77133308181822],
+            [13.593315047298693, 45.78839157973983],
+            [13.526364985416494, 45.80793542219653],
+            [13.499585419173165, 45.82756809116508],
+          ],
+        },
+        properties: {
+          description: "Viaggio in aeroporto",
+          vehicle: "train",
+          markers: [0, 7],
+        },
+      },
+    ];
+  },
 };
 </script>
-
-<style scoped>
-.tooltip {
-  display: block !important;
-  z-index: 10000;
-  .tooltip-inner {
-    background: black;
-    color: white;
-    border-radius: 16px;
-    padding: 5px 10px 4px;
-  }
-  .tooltip-arrow {
-    width: 0;
-    height: 0;
-    border-style: solid;
-    position: absolute;
-    margin: 5px;
-    border-color: black;
-    z-index: 1;
-  }
-  &[x-placement^="top"] {
-     margin-bottom: 5px;
-  .tooltip-arrow {
-    border-width: 5px 5px 0 5px;
-    border-left-color: transparent !important;
-    border-right-color: transparent !important;
-    border-bottom-color: transparent !important;
-    bottom: -5px;
-    left: calc(50% - 5px);
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-}
-&[x-placement^="bottom"] {
-   margin-top: 5px;
-.tooltip-arrow {
-  border-width: 0 5px 5px 5px;
-  border-left-color: transparent !important;
-  border-right-color: transparent !important;
-  border-top-color: transparent !important;
-  top: -5px;
-  left: calc(50% - 5px);
-  margin-top: 0;
-  margin-bottom: 0;
-}
-}
-&[x-placement^="right"] {
-   margin-left: 5px;
-.tooltip-arrow {
-  border-width: 5px 5px 5px 0;
-  border-left-color: transparent !important;
-  border-top-color: transparent !important;
-  border-bottom-color: transparent !important;
-  left: -5px;
-  top: calc(50% - 5px);
-  margin-left: 0;
-  margin-right: 0;
-}
-}
-&[x-placement^="left"] {
-   margin-right: 5px;
-.tooltip-arrow {
-  border-width: 5px 0 5px 5px;
-  border-top-color: transparent !important;
-  border-right-color: transparent !important;
-  border-bottom-color: transparent !important;
-  right: -5px;
-  top: calc(50% - 5px);
-  margin-left: 0;
-  margin-right: 0;
-}
-}
-&[aria-hidden='true'] {
-   visibility: hidden;
-   opacity: 0;
-   transition: opacity .15s, visibility .15s;
- }
-&[aria-hidden='false'] {
-   visibility: visible;
-   opacity: 1;
-   transition: opacity .15s;
- }
-&.info {
-   $color: rgba(#004499, .9);
-.tooltip-inner {
-  background: $color;
-  color: white;
-  padding: 24px;
-  border-radius: 5px;
-  box-shadow: 0 5px 30px rgba(black, .1);
-}
-.tooltip-arrow {
-  border-color: $color;
-}
-}
-&.popover {
-   $color: #f9f9f9;
-.popover-inner {
-  background: $color;
-  color: black;
-  padding: 24px;
-  border-radius: 5px;
-  box-shadow: 0 5px 30px rgba(black, .1);
-}
-.popover-arrow {
-  border-color: $color;
-}
-}
-}
-</style>

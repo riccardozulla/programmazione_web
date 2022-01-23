@@ -5,6 +5,7 @@
         <Leaflet
           :trips="trips"
           :newTrip="newTrip"
+          :zoom="2"
           :selected="selected"
           v-on:sendClickedCoord="setClickedCoord"
         ></Leaflet>
@@ -76,7 +77,6 @@ export default {
           },
         };
       }
-      return "sorpresa";
     },
     setToUpdate() {
       this.updated = false;
@@ -91,6 +91,7 @@ export default {
       });
       if (response.ok) {
         this.trips = await response.json();
+        this.selected = undefined;
       } else if (response.status === 440) {
         store.commit("sessionExpired");
       } else {

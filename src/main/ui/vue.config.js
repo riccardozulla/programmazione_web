@@ -1,4 +1,4 @@
 module.exports = {
-  publicPath: '/programmazione_web/',
-  outputDir: '../webapp/'
-}
+  publicPath: "/programmazione_web/",
+  outputDir: "../webapp/",
+};

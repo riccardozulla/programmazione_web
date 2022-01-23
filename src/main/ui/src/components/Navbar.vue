@@ -38,20 +38,20 @@
       </ul>
     </div>
   </nav>
-  </template>
+</template>
 
-  <script>
-  import { mapGetters, mapMutations } from "vuex";
+<script>
+import { mapGetters, mapMutations } from "vuex";
 
-  export default {
-    name: "Navbar",
-    computed: {
-      ...mapGetters(["isLoggedIn"]),
-    },
-    methods: {
-      ...mapMutations(["logout"]),
-    },
-  };
-  </script>
+export default {
+  name: "Navbar",
+  computed: {
+    ...mapGetters(["isLoggedIn"]),
+  },
+  methods: {
+    ...mapMutations(["logout"]),
+  },
+};
+</script>
 
-  <style></style>
+<style></style>

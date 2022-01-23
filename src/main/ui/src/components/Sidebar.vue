@@ -116,25 +116,31 @@
         <div class="input-group-prepend">
           <span class="input-group-text">Coord.</span>
         </div>
-        <VDropdown :placement="'top'">
-          <input
-              type="text"
-              class="form-control"
-              placeholder="Longitude"
-              v-model="coord[0]"
-              @focus="readyImportCoord(index)"
-          />
-          <template> Click on the map to import a landmark</template>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Longitude"
+          v-model="coord[0]"
+          @focus="readyImportCoord(index)"
+          v-tooltip="{
+            content: 'Click on the map to import a landmark',
+            trigger: 'click focus',
+            delay: { show: 100, hide: 1000 },
+          }"
+        />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Latitude"
+          v-model="coord[1]"
+          @focus="readyImportCoord(index)"
+          v-tooltip="{
+            content: 'Click on the map to import a landmark',
+            trigger: 'click focus',
+            delay: { show: 100, hide: 1000 },
+          }"
+        />
 
-          <input
-              type="text"
-              class="form-control"
-              placeholder="Latitude"
-              v-model="coord[1]"
-              @focus="readyImportCoord(index)"
-          />
-          <template #popper> Click on the map to import a landmark</template>
-        </VDropdown>
         <div class="input-group-append">
           <span class="input-group-text custom-checkbox">
             <input
